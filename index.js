@@ -36,7 +36,10 @@ const generateId = () => {
 }
 
 morgan.token('body', (request, response) => request.method === 'POST' ? JSON.stringify(request.body) : ' ');
-server.use(express.json()).use(morgan(':method :url :status :res[content-length] - :response-time ms :body'));
+
+server.use(express.static('build'));
+server.use(express.json());
+server.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'));
 
 server.get('/info', (request, response) => response.send(
   `<p>Phonebook has info for ${data.length} people.</p><p>${new Date()}</p>`
@@ -84,5 +87,5 @@ server.delete('/api/persons/:id', (request, response) => {
   response.status(204).end();
 })
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 server.listen(PORT, () => console.log(`Server started at port ${PORT}`));
