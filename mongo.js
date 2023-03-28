@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 if (process.argv.length < 3) {
-  console.log("Password needed !");
+  console.log('Password needed !');
   process.exit(1);
 }
 
@@ -36,6 +36,6 @@ else if (process.argv.length >= 5) {
   });
 }
 else {
-  console.log("Missing an argument (name or number) to add a person to the phonebook");
+  console.log('Missing an argument (name or number) to add a person to the phonebook');
   mongoose.connection.close();
 }
