@@ -1,0 +1,26 @@
+### Get all people ###
+GET http://localhost:3001/api/persons
+
+### Create a new person ###
+POST http://localhost:3001/api/persons/
+content-type: application/json
+
+{
+    "name":"Ferrero Rocher",
+    "number":"012-033456"
+}
+
+### Update an existint person ###
+PUT http://localhost:3001/api/persons/6422d33c14acef843aa80ca3
+content-type: application/json
+
+{
+    "name":"blatestbla",
+    "number":"afdhfghbcdef"
+}
+
+### Delete a person ###
+DELETE http://localhost:3001/api/persons/6422d33c14acef843aa80ca3
+
+###
+GET http://localhost:3001/api/persons/6422a2ef4921f4d55ae6c3c9
